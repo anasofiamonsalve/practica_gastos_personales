@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from app.models.gasto import Gasto
 
 def crear(db: Session, datos: dict) -> Gasto:
-    gasto = Gasto(datos)
+    gasto = Gasto(**datos)
     db.add(gasto)
     db.commit()
     db.refresh(gasto)
